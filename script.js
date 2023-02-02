@@ -29,21 +29,7 @@ const renderCountry = function (data, className = '') {
   countriesContainer.style.opacity = 1;
 };
 
-// Alternatively create a helper func
-// const getData = async function (url, errMessage = 'Something went wrong !!') {
-//   return fetch(url).then(response => {
-//     if (!response.ok)
-//       throw new Error(renderErr(`${errMessage} ${response.status}`));
-
-//     return response.json();
-//   });
-// };
-
-const renderErr = function (err) {
-  countriesContainer.insertAdjacentText('beforeend', err);
-  countriesContainer.style.opacity = 1;
-};
-
+//Displays the country & its neighbouring Countries
 const getCountryAndNeighbour = async function (country) {
   try {
     const response = await fetch(
@@ -81,6 +67,7 @@ const getCountryAndNeighbour = async function (country) {
 //uses the userInput to render a country
 document.getElementById('submit').addEventListener('click', function (e) {
   e.preventDefault();
+
   const userInput = inputText.value;
 
   userInput !== '' && getCountryAndNeighbour(userInput);
