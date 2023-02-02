@@ -69,6 +69,7 @@ document.getElementById('submit').addEventListener('click', function (e) {
   e.preventDefault();
 
   const userInput = inputText.value;
-
   userInput !== '' && getCountryAndNeighbour(userInput);
+  countriesContainer.textContent = '';
+  userInput.textContent = '';
 });
