@@ -158,20 +158,17 @@ input[type='submit']:hover {
 }
 
 /* MEDIA QUERRIES  */
-@media screen and (max-width: 75rem) {
+@media screen and (min-width: 75rem) {
   .countries {
     grid-template-columns: 1fr 1fr 1fr;
   }
   .container {
-    flex-direction: column;
-    gap: 4rem;
-
-    align-items: center;
-    justify-content: center;
+    /* flex-direction: column; */
+    gap: 2rem;
   }
 }
 
-@media screen and (max-width: 65rem) {
+@media screen and (max-width: 75rem) {
   .header h2 {
     font-size: 2rem;
   }
@@ -184,7 +181,7 @@ input[type='submit']:hover {
   }
 
   form {
-    width: 80%;
+    width: 100%;
     /* align-items: center; */
     justify-content: center;
     text-align: center;
