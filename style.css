@@ -106,13 +106,15 @@ input[type='submit']:hover {
   content: 'Neighbour country';
   width: 100%;
   position: absolute;
-  top: -4rem;
+  top: 0rem;
 
   text-align: center;
   font-size: 1.8rem;
   font-weight: 600;
   text-transform: uppercase;
-  color: #888;
+  background-color: #f7f7f7;
+  padding: 1rem;
+  color: #555;
 }
 
 .neighbour {
