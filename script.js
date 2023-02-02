@@ -3,6 +3,7 @@
 const btn = document.querySelector('.btn-country');
 const countriesContainer = document.querySelector('.countries');
 const inputText = document.getElementById('country');
+const messageText = document.getElementById('message');
 
 countriesContainer.style.opacity = 1;
 
@@ -19,7 +20,9 @@ const renderCountry = function (data, className = '') {
         <p class="country__row"><span>👫</span>${(
           +data.population / 1000000
         ).toFixed(1)}M population</p>
-            <p class="country__row"><span>🗣️</span>${data.languages.por}</p>
+            <p class="country__row"><span>🌊</span>${
+              data.landlocked ? 'Landlocked' : 'Not landlocked'
+            }</p>
             <p class="country__row"><span> 🏢</span>${data.capital[0]}</p>
             </div>
             </article>
@@ -47,20 +50,21 @@ const getCountryAndNeighbour = async function (country) {
     const neigbouringCountries = data[0].borders;
 
     if (!neigbouringCountries) return;
-    console.log(neigbouringCountries);
-    //render the neighbouring Countries
+    // console.log(neigbouringCountries);
 
+    //render the neighbouring Countries
     neigbouringCountries.map(neighbour => {
       fetch(`https://restcountries.com/v3.1/alpha/${neighbour}`)
         .then(res => res.json())
         .then(data2 => {
-          console.log(data2);
-
           renderCountry(data2[0], 'neighbour');
         });
     });
   } catch (error) {
-    console.log(error);
+    messageText.textContent = 'Country not found !!';
+    setTimeout(() => {
+      location.reload();
+    }, 1000);
   }
 };
 
@@ -70,6 +74,6 @@ document.getElementById('submit').addEventListener('click', function (e) {
 
   const userInput = inputText.value;
   userInput !== '' && getCountryAndNeighbour(userInput);
+
   countriesContainer.textContent = '';
-  userInput.textContent = '';
 });
