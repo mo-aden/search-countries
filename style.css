@@ -16,17 +16,12 @@ body {
   min-height: 100vh;
 
   overflow-x: hidden;
-
-  /* display: flex;
-  align-items: center;
-  justify-content: center; */
 }
 
 .header {
   background-color: rgb(29, 35, 83);
   color: #fff;
   padding: 2.4rem;
-  /* width: 100%; */
 }
 
 .header h2 {
@@ -45,12 +40,15 @@ body {
 .container {
   display: flex;
   gap: 4.8rem;
-  /* flex-flow: column; */
-  /* align-items: center; */
-  /* align-items: center; */
-  justify-content: center;
+
+  justify-content: space-around;
   padding: 4.8rem;
   margin-top: 0;
+}
+
+form {
+  padding: 0 2.4rem;
+  align-self: flex-start;
 }
 
 /************ STYLING FORMS *********/
@@ -86,14 +84,10 @@ input[type='submit']:hover {
 }
 
 .countries {
-  /* margin-bottom: 8rem; */
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
 
-  /* flex-wrap: wrap; */
-
   font-size: 2rem;
-  /* gap: 1px; */
   opacity: 1;
   transition: opacity 1s;
 }
