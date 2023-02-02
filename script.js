@@ -49,21 +49,21 @@ const getCountryAndNeighbour = function (country) {
     .then(data => {
       renderCountry(data[0]);
 
-      const neighbouringCountries = data[0].borders;
+      const neighbouringCountries = data[0].borders[0];
 
       console.log(neighbouringCountries);
       if (!neighbouringCountries) return;
 
-      neighbouringCountries
-        .map(neighbour => {
-          return getJSON(`https://restcountries.com/v3.1/alpha/${neighbour}`);
-        })
-        .then(data => {
-          renderCountry(data[0], 'neighbour');
-        });
+      return getJSON(
+        `https://restcountries.com/v3.1/alpha/${neighbouringCountries}`,
+        "Country doesn't have neighbouring country!"
+      );
+    })
+    .then(data => {
+      renderCountry(data[0], 'neighbour');
     })
     .catch(err => {
-      console.log(`Enter a differrent city...`);
+      console.log(`Enter a differrent city or check the spelling ❤️‍🔥❤️‍🔥❤️‍🔥  `);
       // alert(`Wrong country ...`);
     });
 };
@@ -74,5 +74,4 @@ document.getElementById('submit').addEventListener('click', function (e) {
   const userInput = inputText.value;
 
   userInput !== '' && getCountryAndNeighbour(userInput);
-  // location.reload();
 });
