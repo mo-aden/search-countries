@@ -41,7 +41,7 @@ body {
   display: flex;
   gap: 4.8rem;
 
-  justify-content: space-around;
+  justify-content: center;
   padding: 4.8rem;
   margin-top: 0;
 }
